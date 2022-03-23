@@ -15,10 +15,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
-  public static final String SQL_CREATE = "INSERT INTO ET_USERS(USERID, FIRSTNAME, LASTNAME,"
-      + " EMAIL, PASSWORD) VALUES(NEXTVALUE('ET_USERS_SEQ'), ?, ?, ?, ?))";
+  public static final String SQL_CREATE = "INSERT INTO ET_USERS (USER_ID, FIRST_NAME, LAST_NAME,"
+      + " EMAIL, PASSWORD) VALUES(NEXTVAL('ET_USERS_SEQ'), ?, ?, ?, ?) ";
   public static final String SQL_COUNT_BY_EMAIL = "SELECT COUNT(*) FROM ET_USERS WHERE EMAIL = ?";
-  public static final String SQL_FIND_BY_ID = "SELECT USER_ID FIRSTNAME LASTNAME EMAIL PASSWORD"
+  public static final String SQL_FIND_BY_ID = "SELECT USER_ID, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD "
       + "FROM ET_USERS";
 
   @Autowired
@@ -35,6 +35,7 @@ public class UserRepositoryImpl implements UserRepository {
         ps.setString(2, lastName);
         ps.setString(3, email);
         ps.setString(4, password);
+
         return ps;
       }, keyHolder);
 
@@ -60,6 +61,7 @@ public class UserRepositoryImpl implements UserRepository {
   @Override
   public
   User findById(Integer userId) {
+    System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
     return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new Object[]{userId}, userRowMapper);
 
   }
