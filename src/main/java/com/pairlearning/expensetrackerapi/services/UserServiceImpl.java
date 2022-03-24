@@ -37,7 +37,6 @@ public class UserServiceImpl implements UserService {
       throw new ETAuthException("Email already taken");
     }
     Integer userId = userRepository.create(firstName, lastName, email, password);
-    System.out.println("userId:::::::::::" + userId);
     return userRepository.findById(userId);
   }
 }
