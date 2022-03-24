@@ -21,6 +21,18 @@ public class UserResource {
   @Autowired
   UserService userService;
 
+  @PostMapping("/login")
+  public ResponseEntity loginUser(@RequestBody Map<String, Object> userMap) {
+    String email = (String) userMap.get("email");
+    String password = (String) userMap.get("password");
+    User user = userService.validateUser(email, password);
+    Map <String, String> map = new HashMap<>();
+    map.put("message", "Logged in successfully");
+    return new ResponseEntity<>(map, HttpStatus.OK);
+  }
+
+
+
   @PostMapping("/register")
   public ResponseEntity registerUser(@RequestBody Map<String, Object> userMap) {
     String firstName = (String) userMap.get("firstName");

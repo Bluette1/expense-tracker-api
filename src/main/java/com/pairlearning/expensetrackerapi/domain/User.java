@@ -20,6 +20,10 @@ public class User {
    return this.userId;
  }
 
+public Object getPassword() {
+  return this.password;
+}
+
 
 
 
