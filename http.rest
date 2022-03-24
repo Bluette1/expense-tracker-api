@@ -2,9 +2,9 @@ POST http://localhost:8080/api/users/register HTTP/1.1
 content-type: application/json
 
 {
-  "firstName": "Mylene",
+  "firstName": "Mary",
   "lastName": "Sawyer",
-  "email": "mylene.sawyer@email.com",
+  "email": "mary.sawyer@email.com",
   "password": "password"
 }
 
@@ -14,6 +14,6 @@ POST http://localhost:8080/api/users/login HTTP/1.1
 content-type: application/json
 
 {
-  "email": "maylene.sawyer@email.com",
+  "email": "mary.sawyer@email.com",
   "password": "password"
 }

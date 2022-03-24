@@ -20,7 +20,7 @@ public class User {
    return this.userId;
  }
 
-public Object getPassword() {
+public String getPassword() {
   return this.password;
 }
 

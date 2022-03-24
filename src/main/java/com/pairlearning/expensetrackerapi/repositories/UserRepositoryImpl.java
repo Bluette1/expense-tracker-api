@@ -6,6 +6,7 @@ import java.sql.Statement;
 import com.pairlearning.expensetrackerapi.domain.User;
 import com.pairlearning.expensetrackerapi.exceptions.ETAuthException;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -30,6 +31,8 @@ public class UserRepositoryImpl implements UserRepository {
   @Override
   public Integer create(String firstName, String lastName, String email, String password)
       throws ETAuthException {
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(10));
+
     try {
       KeyHolder keyHolder = new GeneratedKeyHolder();
       jdbcTemplate.update(connection -> {
@@ -37,7 +40,7 @@ public class UserRepositoryImpl implements UserRepository {
         ps.setString(1, firstName);
         ps.setString(2, lastName);
         ps.setString(3, email);
-        ps.setString(4, password);
+        ps.setString(4, hashedPassword);
 
         return ps;
       }, keyHolder);
@@ -54,7 +57,7 @@ public class UserRepositoryImpl implements UserRepository {
   User findByEmailAndPassword(String email, String password) throws ETAuthException {
     try {
       User user = jdbcTemplate.queryForObject(SQL_FIND_BY_EMAIL, new Object[]{email}, userRowMapper);
-      if (!password.equals(user.getPassword())) {
+      if (!BCrypt.checkpw(password, user.getPassword())) {
         throw new ETAuthException("Invalid email/password");
       }
       return user;
