@@ -24,6 +24,18 @@ public String getPassword() {
   return this.password;
 }
 
+public String getFirstName() {
+  return this.firstName;
+}
+
+public String getEmail() {
+  return this.email;
+}
+
+public Object getLastName() {
+  return this.lastName;
+}
+
 
 
 

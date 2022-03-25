@@ -2,9 +2,28 @@ POST http://localhost:8080/api/users/register HTTP/1.1
 content-type: application/json
 
 {
-  "firstName": "Mary",
+  "firstName": "Wary",
   "lastName": "Sawyer",
-  "email": "mary.sawyer@email.com",
+  "email": "w    <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>2.3.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-impl</artifactId>
+        <version>2.3.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-runtime</artifactId>
+        <version>2.3.0</version>
+    </dependency>
+    <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>1.1.1</version>
+    </dependency>ary.sawyer@email.com",
   "password": "password"
 }
 
