@@ -1,5 +1,6 @@
 package com.pairlearning.expensetrackerapi.resources;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,14 +26,15 @@ public class CategoryResource {
   CategoryService categoryService;
 
   @GetMapping("")
-  public String getAllCategories(HttpServletRequest request) {
+  public ResponseEntity<List<Category>> getAllCategories(HttpServletRequest request) {
     int userId = (Integer) request.getAttribute("userId");
-
-    return "Authenticated! UserId: " + userId;
+    List<Category> categories = categoryService.fetchAllCategories(userId);
+    return new ResponseEntity<>(categories, HttpStatus.OK);
   }
 
   @GetMapping("/{categoryId}")
-  public ResponseEntity<Category> getCategoryById(HttpServletRequest request, @PathVariable("categoryId") Integer categoryId) {
+  public ResponseEntity<Category> getCategoryById(HttpServletRequest request,
+      @PathVariable("categoryId") Integer categoryId) {
     int userId = (Integer) request.getAttribute("userId");
     Category category = categoryService.fetchCategoryById(userId, categoryId);
     return new ResponseEntity<>(category, HttpStatus.OK);

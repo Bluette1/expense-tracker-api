@@ -7,7 +7,7 @@ import com.pairlearning.expensetrackerapi.exceptions.ETBadRequestException;
 import com.pairlearning.expensetrackerapi.exceptions.ETResourceNotFoundException;
 
 public interface CategoryRepository {
-  List<Category> findall(Integer userId) throws ETResourceNotFoundException;
+  List<Category> findAll(Integer userId) throws ETResourceNotFoundException;
 
   Category findById(Integer userId, Integer categoryId) throws ETResourceNotFoundException;
 

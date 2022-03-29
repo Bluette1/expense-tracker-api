@@ -38,3 +38,9 @@ authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1MjA4ODgsImV4cCI6MTY0O
 GET http://localhost:8080/api/categories/7 HTTP/1.1
 content-type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1MjA4ODgsImV4cCI6MTY0ODUyODA4OCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.NxPjlIiDiro1fZ96l1ixLg1LJll_QAthIIQ02GeRzGo
+
+###
+
+GET http://localhost:8080/api/categories/ HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1Mjg4ODQsImV4cCI6MTY0ODUzNjA4NCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.67v4PS4ZGiaoCzzIlKoR4DTGeCoSEhSXdnZr775zXq0

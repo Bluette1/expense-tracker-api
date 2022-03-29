@@ -2,8 +2,6 @@ package com.pairlearning.expensetrackerapi.services;
 
 import java.util.regex.Pattern;
 
-import javax.swing.border.EtchedBorder;
-
 import com.pairlearning.expensetrackerapi.domain.User;
 import com.pairlearning.expensetrackerapi.exceptions.ETAuthException;
 import com.pairlearning.expensetrackerapi.repositories.UserRepository;

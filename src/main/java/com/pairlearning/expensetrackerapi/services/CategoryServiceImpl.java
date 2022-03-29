@@ -25,7 +25,7 @@ public class CategoryServiceImpl implements CategoryService {
 
   @Override
   public List<Category> fetchAllCategories(Integer userId) {
-    return null;
+    return categoryRepository.findAll(userId);
   }
 
   @Override
