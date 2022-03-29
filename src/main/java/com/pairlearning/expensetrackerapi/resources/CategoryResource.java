@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,13 @@ public class CategoryResource {
     int userId = (Integer) request.getAttribute("userId");
 
     return "Authenticated! UserId: " + userId;
+  }
+
+  @GetMapping("/{categoryId}")
+  public ResponseEntity<Category> getCategoryById(HttpServletRequest request, @PathVariable("categoryId") Integer categoryId) {
+    int userId = (Integer) request.getAttribute("userId");
+    Category category = categoryService.fetchCategoryById(userId, categoryId);
+    return new ResponseEntity<>(category, HttpStatus.OK);
   }
 
   @PostMapping("")
