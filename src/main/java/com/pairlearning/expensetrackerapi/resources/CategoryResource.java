@@ -1,5 +1,6 @@
 package com.pairlearning.expensetrackerapi.resources;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -48,5 +50,15 @@ public class CategoryResource {
     String description = (String) categoryMap.get("description");
     Category category = categoryService.addCategory(userId, title, description);
     return new ResponseEntity<>(category, HttpStatus.CREATED);
+  }
+
+  @PutMapping("/{categoryId}")
+  public ResponseEntity<Map<String, Boolean>> updateCategory(HttpServletRequest request,
+      @PathVariable("categoryId") Integer categoryId, @RequestBody Category category) {
+    int userId = (Integer) request.getAttribute("userId");
+    categoryService.updateCategory(userId, categoryId, category);
+    Map<String, Boolean> map = new HashMap<>();
+    map.put("success", true);
+    return new ResponseEntity<>(map, HttpStatus.OK);
   }
 }
