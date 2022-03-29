@@ -2,9 +2,9 @@ POST http://localhost:8080/api/users/register HTTP/1.1
 content-type: application/json
 
 {
-  "firstName": "Wary",
+  "firstName": "Uary",
   "lastName": "Sawyer",
-  "email": "wary.sawyer@email.com",
+  "email": "uary.sawyer@email.com",
   "password": "password"
 }
 
@@ -20,3 +20,15 @@ content-type: application/json
 
 ###
 GET http://localhost:8080/api/categories HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1MjA4ODgsImV4cCI6MTY0ODUyODA4OCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.NxPjlIiDiro1fZ96l1ixLg1LJll_QAthIIQ02GeRzGo
+
+###
+POST http://localhost:8080/api/categories HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1MjA4ODgsImV4cCI6MTY0ODUyODA4OCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.NxPjlIiDiro1fZ96l1ixLg1LJll_QAthIIQ02GeRzGo
+
+{
+  "title": "title_4",
+  "description": "description_4"
+}
