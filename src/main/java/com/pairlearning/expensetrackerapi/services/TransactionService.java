@@ -11,10 +11,11 @@ public interface TransactionService {
   Transaction fetchTransactionById(Integer userId, Integer categoryId, Integer transactionId)
       throws ETResourceNotFoundException;
 
-  Transaction addTransaction(Integer userId, Integer categoryId, Integer transactionId, Double amount,
+  Transaction addTransaction(Integer userId, Integer categoryId, Double amount,
       Long transactionDate, String note) throws ETBadRequestException;
 
-  void updateTransaction(Integer userId, Integer categoryId, Integer transactionId, Transaction transaction) throws ETBadRequestException;
+  void updateTransaction(Integer userId, Integer categoryId, Integer transactionId, Transaction transaction)
+      throws ETBadRequestException;
 
   void removeById(Integer userId, Integer categoryId, Integer transactionId) throws ETResourceNotFoundException;
 }

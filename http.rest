@@ -54,3 +54,14 @@ authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1Mjg4ODQsImV4cCI6MTY0O
   "title": "Shopping",
   "description": "Shopping expenses"
 }
+
+###
+POST http://localhost:8080/api/categories/8/transactions HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg3MDEzNDEsImV4cCI6MTY0ODcwODU0MSwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.K5QMi73pxsbzUIRsfSOzvXtCWVPPpgpTCYTgjk6KUlo
+
+{
+  "amount": 5000,
+  "note": "Easter shopping",
+  "transactionDate": 1577817000000
+}

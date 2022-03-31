@@ -13,13 +13,15 @@ public class Transaction {
       Integer userId,
       Integer categoryId,
       Double amount,
-      Long transactionDate,
-      String note) {
+      String note,
+      Long transactionDate) {
     this.transactionId = transactionId;
     this.userId = userId;
     this.categoryId = categoryId;
-    this.transactionDate = transactionDate;
     this.note = note;
+    this.amount = amount;
+    this.transactionDate = transactionDate;
+
   }
 
   public Integer getTransactionId() {
