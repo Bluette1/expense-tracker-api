@@ -9,4 +9,6 @@ public interface TransactionRepository {
   List<Transaction> getAll(Integer userId, Integer categoryId);
   Transaction findById(Integer userId, Integer categoryId, Integer transactionId) throws ETResourceNotFoundException;
   Integer create(Integer userId, Integer categoryId, Double amount, Long transactionDate, String note) throws ETBadRequestException;
+  void update(Integer userId, Integer categoryId, Integer transactionId, Transaction transaction)
+    throws ETBadRequestException;
 }

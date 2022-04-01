@@ -26,14 +26,18 @@ public class TransactionRepositoryImpl implements TransactionRepository {
       + ", AMOUNT, NOTE, TRANSACTION_DATE FROM ET_TRANSACTIONS WHERE USER_ID = ? AND CATEGORY_ID = ?"
       + "AND TRANSACTION_ID = ?";
 
+  private static final String SQL_FIND_ALL = "SELECT TRANSACTION_ID, CATEGORY_ID, USER_ID"
+      + ", AMOUNT, NOTE, TRANSACTION_DATE FROM ET_TRANSACTIONS WHERE USER_ID = ? AND CATEGORY_ID = ?";
+
+  private static final String SQL_UPDATE = "ALTER TABLE ET_TRANSACTIONS SET AMOUNT = ?,"
+      + " NOTE = ?, TRANSACTION_DATE = ? WHERE USER_ID = ? AND CATEGORY_ID = ? AND TRANSACTION_ID = ?";
   @Autowired
 
   JdbcTemplate jdbcTemplate;
 
   @Override
   public List<Transaction> getAll(Integer userId, Integer categoryId) {
-    // TODO Auto-generated method stub
-    return null;
+    return jdbcTemplate.query(SQL_FIND_ALL, new Object[] { userId, categoryId }, transactionRowMapper);
   }
 
   @Override
@@ -79,5 +83,19 @@ public class TransactionRepositoryImpl implements TransactionRepository {
         rs.getString("NOTE"),
         rs.getLong("TRANSACTION_DATE"));
   });
+
+  @Override
+  public void update(Integer userId, Integer categoryId, Integer transactionId, Transaction transaction)
+      throws ETBadRequestException {
+    try {
+      jdbcTemplate.update(SQL_UPDATE,
+          new Object[] { transaction.getAmount(), transaction.getNote(), transaction.getTransactionDate(), userId,
+              categoryId, transactionId });
+
+    } catch (Exception e) {
+      throw new ETBadRequestException("Invalid request");
+    }
+
+  }
 
 }

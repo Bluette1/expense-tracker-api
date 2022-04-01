@@ -65,3 +65,24 @@ authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg3MDEzNDEsImV4cCI6MTY0O
   "note": "Easter shopping",
   "transactionDate": 1577817000000
 }
+
+###
+GET http://localhost:8080/api/categories/8/transactions/1003 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg3MDEzNDEsImV4cCI6MTY0ODcwODU0MSwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.K5QMi73pxsbzUIRsfSOzvXtCWVPPpgpTCYTgjk6KUlo
+
+###
+GET http://localhost:8080/api/categories/8/transactions HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg3MDEzNDEsImV4cCI6MTY0ODcwODU0MSwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.K5QMi73pxsbzUIRsfSOzvXtCWVPPpgpTCYTgjk6KUlo
+
+###
+PUT http://localhost:8080/api/categories/8/transactions/1003 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg3MDEzNDEsImV4cCI6MTY0ODcwODU0MSwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.K5QMi73pxsbzUIRsfSOzvXtCWVPPpgpTCYTgjk6KUlo
+
+{
+   "amount": 4000.0,
+  "transactionDate": 1577817000000,
+  "note": "Mer shopping"
+}
