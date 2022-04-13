@@ -1,0 +1,98 @@
+POST http://localhost:8080/api/users/register HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Uary",
+  "lastName": "Sawyer",
+  "email": "uary.sawyer@email.com",
+  "password": "password"
+}
+
+###
+
+POST http://localhost:8080/api/users/login HTTP/1.1
+content-type: application/json
+
+{
+  "email": "mary.sawyer@email.com",
+  "password": "password"
+}
+
+###
+GET http://localhost:8080/api/categories HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1MjA4ODgsImV4cCI6MTY0ODUyODA4OCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.NxPjlIiDiro1fZ96l1ixLg1LJll_QAthIIQ02GeRzGo
+
+###
+POST http://localhost:8080/api/categories HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1MjA4ODgsImV4cCI6MTY0ODUyODA4OCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.NxPjlIiDiro1fZ96l1ixLg1LJll_QAthIIQ02GeRzGo
+
+{
+  "title": "title_4",
+  "description": "description_4"
+}
+
+###
+
+GET http://localhost:8080/api/categories/7 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1Mjg4ODQsImV4cCI6MTY0ODUzNjA4NCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.67v4PS4ZGiaoCzzIlKoR4DTGeCoSEhSXdnZr775zXq0
+
+###
+
+GET http://localhost:8080/api/categories/ HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDg1Mjg4ODQsImV4cCI6MTY0ODUzNjA4NCwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.67v4PS4ZGiaoCzzIlKoR4DTGeCoSEhSXdnZr775zXq0
+
+###
+PUT http://localhost:8080/api/categories/8 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDk4MjI3NDMsImV4cCI6MTY0OTgyOTk0MywidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.tIvoC5XthR-rfytx4mo_wYsO-z1rl3CiIt9aIAKgSNo
+
+{
+  "title": "Shopping",
+  "description": "Shopping expenses"
+}
+
+###
+POST http://localhost:8080/api/categories/8/transactions HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDk4MjI3NDMsImV4cCI6MTY0OTgyOTk0MywidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.tIvoC5XthR-rfytx4mo_wYsO-z1rl3CiIt9aIAKgSNo
+
+{
+  "amount": 5000,
+  "note": "Easter shopping",
+  "transactionDate": 1577817000000
+}
+
+###
+GET http://localhost:8080/api/categories/8/transactions/1007 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDk4MTUzMTIsImV4cCI6MTY0OTgyMjUxMiwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.Q_I2OAwVoVnxGpC3qUFZ8hPgz1GuqVBNXqHikERxoC8
+
+###
+GET http://localhost:8080/api/categories/8/transactions HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDk4MTUzMTIsImV4cCI6MTY0OTgyMjUxMiwidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.Q_I2OAwVoVnxGpC3qUFZ8hPgz1GuqVBNXqHikERxoC8
+###
+PUT http://localhost:8080/api/categories/8/transactions/1006 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDk4MjI3NDMsImV4cCI6MTY0OTgyOTk0MywidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.tIvoC5XthR-rfytx4mo_wYsO-z1rl3CiIt9aIAKgSNo
+
+{
+   "amount": 4000.0,
+  "transactionDate": 1577817000000,
+  "note": "Merrr shopping"
+}
+###
+
+DELETE http://localhost:8080/api/categories/8/transactions/1006 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDk4MjI3NDMsImV4cCI6MTY0OTgyOTk0MywidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.tIvoC5XthR-rfytx4mo_wYsO-z1rl3CiIt9aIAKgSNo
+
+###
+
+DELETE http://localhost:8080/api/categories/7 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDk4MjI3NDMsImV4cCI6MTY0OTgyOTk0MywidXNlcklkIjoxMSwiZW1haWwiOiJtYXJ5LnNhd3llckBlbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJNYXJ5IiwibGFzdE5hbWUiOiJTYXd5ZXIifQ.tIvoC5XthR-rfytx4mo_wYsO-z1rl3CiIt9aIAKgSNo
