@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
@@ -58,6 +60,16 @@ public class TransactionResource {
       @PathVariable("categoryId") Integer categoryId, @PathVariable("transactionId") Integer transactionId, @RequestBody Transaction transaction) {
     int userId = (Integer) request.getAttribute("userId");
     transactionService.updateTransaction(userId, categoryId, transactionId, transaction);
+    Map<String, Boolean> map = new HashMap<>();
+    map.put("success", true);
+    return new ResponseEntity<>(map, HttpStatus.OK);
+  }
+
+  @DeleteMapping("/{transactionId}")
+  public ResponseEntity<Map<String, Boolean>> updateTransaction(HttpServletRequest request,
+      @PathVariable("categoryId") Integer categoryId, @PathVariable("transactionId") Integer transactionId) {
+    int userId = (Integer) request.getAttribute("userId");
+    transactionService.removeById(userId, categoryId, transactionId);
     Map<String, Boolean> map = new HashMap<>();
     map.put("success", true);
     return new ResponseEntity<>(map, HttpStatus.OK);

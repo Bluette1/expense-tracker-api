@@ -30,6 +30,10 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
   private static final String SQL_UPDATE = "UPDATE ET_CATEGORIES SET TITLE = ?, DESCRIPTION = ? WHERE USER_ID = ? AND CATEGORY_ID = ?";
 
+  private static final String SQL_DELETE_CATEGORY = "DELETE FROM ET_CATEGORIES WHERE CATEGORY_ID = ?";
+
+  private static final String SQL_DELETE_TRANSACTIONS = "DELETE FROM ET_TRANSACTIONS WHERE CATEGORY_ID = ?";
+
   @Autowired
   JdbcTemplate jdbcTemplate;
 
@@ -72,7 +76,8 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
   @Override
   public void removeById(Integer userId, Integer categoryId) throws ETResourceNotFoundException {
-
+    this.removeAllCatTransactions(categoryId);
+    jdbcTemplate.update(SQL_DELETE_CATEGORY, new Object[]{categoryId});
   }
 
   @Override
@@ -84,6 +89,10 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     } catch (Exception e) {
       throw new ETBadRequestException("Invalid request");
     }
+  }
+
+  private void removeAllCatTransactions(Integer categoryId) {
+    jdbcTemplate.update(SQL_DELETE_TRANSACTIONS, new Object[]{ categoryId });
   }
 
   private RowMapper<Category> categoryRowMapper = ((rs, rowNum) -> {
